@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
         Runking,
         Main
     }
+
     [SerializeField] Scenes sceneName;
 
     //<summary>
