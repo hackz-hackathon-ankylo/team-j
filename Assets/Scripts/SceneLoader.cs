@@ -15,7 +15,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] Scenes sceneName;
 
     //<summary>
-    //インスペクターで選ばれたシーンに飛ぶ
+    //繧､繝ｳ繧ｹ繝壹け繧ｿ繝ｼ縺ｧ驕ｸ縺ｰ繧後◆繧ｷ繝ｼ繝ｳ縺ｫ鬟帙�ｶ
     //</summary>
     public void LoadScene()
     {
