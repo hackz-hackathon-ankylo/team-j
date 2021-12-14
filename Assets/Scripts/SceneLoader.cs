@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
     public enum Scenes
     {
         Title,
-        Runking,
+        Ranking,
         Main
     }
 
