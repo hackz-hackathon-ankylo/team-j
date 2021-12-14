@@ -164,16 +164,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 42751241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17e7e2bd3145a242939d9bfdd736370, type: 3}
+  m_Script: {fileID: 11500000, guid: e30ae86d4bc039e489415ad38a0fb186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: dc9d623a5d1adfd4885e4d6a2205f4f1, type: 3}
-  sprite2: {fileID: 21300000, guid: dc9d867f38867af4a93ce0b17d03654c, type: 3}
-  sprite3: {fileID: 21300000, guid: eb8c4ff19a4d5724685688aea1f1b865, type: 3}
+  sprite: {fileID: 21300000, guid: 7715b65098bc6684f84ddd4cbfe0f2ee, type: 3}
+  sprite2: {fileID: 21300000, guid: 1aafda8b1cb5d334b9f64591ecaf3b62, type: 3}
+  sprite3: {fileID: 21300000, guid: 4dcec3e9be3ca004e944bfb0eda73769, type: 3}
   spriteRenderer: {fileID: 42751244}
-  isLowestPosition: 0
-  isIntermediatePosition: 0
-  isHighestPosition: 0
 --- !u!212 &42751244
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -252,16 +249,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 225235772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e17e7e2bd3145a242939d9bfdd736370, type: 3}
+  m_Script: {fileID: 11500000, guid: e30ae86d4bc039e489415ad38a0fb186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 40173f9523e093144b00561059a9b7e9, type: 3}
-  sprite2: {fileID: 21300000, guid: 18a412cd0764fe14f80126384c10c4ec, type: 3}
-  sprite3: {fileID: 21300000, guid: 9746f1569eedb63438dbca3132d7d893, type: 3}
+  sprite: {fileID: 21300000, guid: 24314f7d9ccb8da48aa3e4a7c26b7224, type: 3}
+  sprite2: {fileID: 21300000, guid: b7841252868722b4aa972eb1a0bfdf88, type: 3}
+  sprite3: {fileID: 21300000, guid: dfa01a13311ee5b4fbb1f867dbb539ce, type: 3}
   spriteRenderer: {fileID: 225235774}
-  isLowestPosition: 0
-  isIntermediatePosition: 0
-  isHighestPosition: 0
 --- !u!212 &225235774
 SpriteRenderer:
   m_ObjectHideFlags: 0
