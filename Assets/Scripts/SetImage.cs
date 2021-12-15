@@ -18,7 +18,7 @@ public class SetImage : MonoBehaviour {
  
     // Use this for initialization
     void Start () {
-       isLowestPosition = true; // ここは仮でおいてます。本番はboolを受け取る。
+       isIntermediatePosition = true; // ここは仮でおいてます。本番はboolを受け取る。
     }
  
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class SetImage : MonoBehaviour {
             isHighestPosition = false;
         }
 
-        if (isIntermediatePosition)
+        else if (isIntermediatePosition)
         {
             spriteRenderer.sprite = sprite2;
             isLowestPosition = true;
@@ -40,7 +40,7 @@ public class SetImage : MonoBehaviour {
             isHighestPosition = true;
         }
 
-        if (isHighestPosition)
+        else if (isHighestPosition)
         {
             spriteRenderer.sprite = sprite3;
             isLowestPosition = true;
