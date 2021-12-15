@@ -20,10 +20,16 @@ public class JoyconInformation : MonoBehaviour
     private Joycon          m_joyconR; // 接続されたJoyConの右
     private Joycon.Button?  m_pressedButtonL; // 押された左ボタンを格納
     private Joycon.Button?  m_pressedButtonR; // 押された右ボタンを格納
-    private bool shakesLJoyconUpwards = false;// 左側のJoy-Conを上方向に振ったとき
-    private bool isOnlyOnceLeft = false;
-    private bool shakesRJoyconUpwards = false;// 右側のJoy-Conを上方向に振ったとき
-    private bool isOnlyOnceRight = false;
+
+    /// <summary>
+    /// TODO:enumで管理する
+    /// </summary>
+    private bool isLowestPositionL = false;
+    private bool isIntermediatePositionL = false;
+    private bool isHighestPositionL = false;
+    private bool isLowestPositionR = false;
+    private bool isIntermediatePositionR = false;
+    private bool isHighestPositionR = false;
 
     private void Start()
     {
@@ -45,6 +51,7 @@ public class JoyconInformation : MonoBehaviour
         foreach ( var joycon in m_joycons )
         {
             var isLeft      = joycon.isLeft;
+
             var name        = isLeft ? "Joy-Con (L)" : "Joy-Con (R)";
 
             // joyCon が左なら左の押されている状況、右なら右の押されている状況
@@ -55,22 +62,16 @@ public class JoyconInformation : MonoBehaviour
 
             if(isLeft)
             {
-                shakesLJoyconUpwards = (accel.y > 0.9f);
+                isLowestPositionL = (0.9f < accel.x);
+                isIntermediatePositionL = (0.3f < accel.x && accel.x < 0.7f);
+                isHighestPositionL = (accel.x < 0.1f);
             }
-            else
-            {　
-                shakesRJoyconUpwards = (accel.x > 0.9f);
+            else 
+            {
+                isLowestPositionR = (accel.x < 0.1f);
+                isIntermediatePositionR = (0.3f < accel.x && accel.x < 0.7f);
+                isHighestPositionR = (0.9f < accel.x);
             }
-            
-        }
-
-        if(shakesLJoyconUpwards && !isOnlyOnceLeft){
-            shakesLJoyconUpwards = false;
-            isOnlyOnceLeft = true;
-        }
-        if(shakesRJoyconUpwards && !isOnlyOnceRight){
-            shakesRJoyconUpwards = false;
-            isOnlyOnceRight = true;
         }
 
         // ボタンの押されてるか否かをリセット
