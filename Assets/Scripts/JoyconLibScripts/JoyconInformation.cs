@@ -20,10 +20,8 @@ public class JoyconInformation : MonoBehaviour
     private Joycon          m_joyconR; // 接続されたJoyConの右
     private Joycon.Button?  m_pressedButtonL; // 押された左ボタンを格納
     private Joycon.Button?  m_pressedButtonR; // 押された右ボタンを格納
-    private bool shakesLJoyconUpwards = false;// 左側のJoy-Conを上方向に振ったとき
-    private bool isOnlyOnceLeft = false;
-    private bool shakesRJoyconUpwards = false;// 右側のJoy-Conを上方向に振ったとき
-    private bool isOnlyOnceRight = false;
+
+    
 
     private void Start()
     {
@@ -53,25 +51,9 @@ public class JoyconInformation : MonoBehaviour
             // joycon 加速度
             var accel       = joycon.GetAccel();
 
-            if(isLeft)
-            {
-                shakesLJoyconUpwards = (accel.y > 0.9f);
-            }
-            else
-            {　
-                shakesRJoyconUpwards = (accel.x > 0.9f);
-            }
             
         }
 
-        if(shakesLJoyconUpwards && !isOnlyOnceLeft){
-            shakesLJoyconUpwards = false;
-            isOnlyOnceLeft = true;
-        }
-        if(shakesRJoyconUpwards && !isOnlyOnceRight){
-            shakesRJoyconUpwards = false;
-            isOnlyOnceRight = true;
-        }
 
         // ボタンの押されてるか否かをリセット
         m_pressedButtonL = null;
