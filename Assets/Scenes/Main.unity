@@ -358,7 +358,7 @@ MonoBehaviour:
   color4: {r: 0, g: 0, b: 0, a: 0}
   maxPG: 100
   nowPG: 100
-  Powergauge: {fileID: 0}
+  Powergauge: {fileID: 116436698}
   PG_ratio: 0
 --- !u!114 &651199858
 MonoBehaviour:
