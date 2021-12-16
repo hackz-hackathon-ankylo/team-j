@@ -24,12 +24,12 @@ public class JoyconInformation : MonoBehaviour
     /// <summary>
     /// TODO:enumで管理する
     /// </summary>
-    private bool isLowestPositionL = false;
-    private bool isIntermediatePositionL = false;
-    private bool isHighestPositionL = false;
-    private bool isLowestPositionR = false;
-    private bool isIntermediatePositionR = false;
-    private bool isHighestPositionR = false;
+    [System.NonSerialized]public bool isLowestPositionL = false;
+    [System.NonSerialized]public bool isIntermediatePositionL = false;
+    [System.NonSerialized]public bool isHighestPositionL = false;
+    [System.NonSerialized]public bool isLowestPositionR = false;
+    [System.NonSerialized]public bool isIntermediatePositionR = false;
+    [System.NonSerialized]public bool isHighestPositionR = false;
 
     private void Start()
     {
