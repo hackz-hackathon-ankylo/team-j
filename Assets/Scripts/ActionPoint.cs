@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// アクションポイントを管理するクラス
+/// </summary>
 public class ActionPoint : MonoBehaviour
 {
     const float MaxActionPoint = 100f;
@@ -10,12 +13,18 @@ public class ActionPoint : MonoBehaviour
 
     [System.NonSerialized]public float actionPoint = 0;
 
-    
+    /// <summary>
+    /// アクションポイントを一追加する関数
+    /// </summary>
     public void AddActionPoint()
     {
         actionPoint++;
     }
-    public float AddPowerGauge(float x)
+
+    /// <summary>
+    /// パワーゲージの増減をする関数
+    /// </summary>
+    public float ChangePowerGauge(float x)
     {
         if(x < actionPoint)
         {
@@ -27,11 +36,19 @@ public class ActionPoint : MonoBehaviour
         }
         return x;
     }
+
+    /// <summary>
+    /// 障害物の耐久度を減らす関数
+    /// </summary>
     public float ReduceObjectDurability(float x)
     {
         x -= actionPoint;
         return x;
     }
+
+    /// <summary>
+    /// アクションポイントを減らす関数
+    /// </summary>
     public void ReduceActionPoint(float x)
     {
         actionPoint -= x;
@@ -41,6 +58,5 @@ public class ActionPoint : MonoBehaviour
         if(MaxActionPoint < actionPoint)actionPoint = MaxActionPoint;
 
         if(actionPoint < MinActionPoint)actionPoint = MinActionPoint;
-        Debug.Log(actionPoint);
     }
 }

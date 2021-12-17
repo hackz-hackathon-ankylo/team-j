@@ -16,7 +16,7 @@ public class PowerGauge : MonoBehaviour
 
     void Update()
     {
-        nowPG = actionPoint.AddPowerGauge(nowPG);
+        nowPG = actionPoint.ChangePowerGauge(nowPG);
 
         PG_ratio = nowPG / maxPG; // PG_ratioの計算式
 
