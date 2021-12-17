@@ -13,8 +13,8 @@ public class JoyconPositionInformation : MonoBehaviour
 
     [SerializeField]private JoyconInformation joyconInfo;
     [SerializeField]ActionPoint actionPoint;
+    [SerializeField]MovingDistance movingDistance;
 
-    private float movingDistance = 0;
     private bool isArmIntermediate = false;
     private bool isArmHighest = false;
     private bool isLegIntermediate = false;
@@ -45,7 +45,7 @@ public class JoyconPositionInformation : MonoBehaviour
         //左側のJoy-Con（足のJoy-Con）が中間点の時の処理
         if(joyconInfo.isIntermediatePositionL && !isLegIntermediate)
         {
-            movingDistance++;
+            movingDistance.AddMovingDistance();
             isLegIntermediate = true;
         }
 
@@ -59,10 +59,10 @@ public class JoyconPositionInformation : MonoBehaviour
         //左側のJoy-Con（足のJoy-Con）が最高点の時の処理
         if(joyconInfo.isHighestPositionL && !isLegHighest)
         {
-            movingDistance++;
+            movingDistance.AddMovingDistance();
             isLegHighest =true;
         }
-        
+
     }
 
 }
