@@ -11,13 +11,8 @@ public class JoyconPositionInformation : MonoBehaviour
 
 {
 
-    const float MaxActionPoint = 100f;
-
-    const float MinActionPoint = 0f;
-
     [SerializeField]private JoyconInformation joyconInfo;
-
-    public float actionPoint = 0;
+    [SerializeField]ActionPoint actionPoint;
 
     private float movingDistance = 0;
     private bool isArmIntermediate = false;
@@ -43,7 +38,7 @@ public class JoyconPositionInformation : MonoBehaviour
         //右側のJoy-Con（腕のJoy-Con）が中間点の時の処理
         if(joyconInfo.isIntermediatePositionR && !isArmIntermediate)
         {
-            actionPoint++;
+            actionPoint.AddActionPoint();
             isArmIntermediate = true;
         }
 
@@ -57,7 +52,7 @@ public class JoyconPositionInformation : MonoBehaviour
         //右側のJoy-Con（腕のJoy-Con）が最高点の時の処理
         if(joyconInfo.isHighestPositionR && !isArmHighest)
         {
-            actionPoint++;
+            actionPoint.AddActionPoint();
             isArmHighest = true;
         }
 
@@ -67,11 +62,7 @@ public class JoyconPositionInformation : MonoBehaviour
             movingDistance++;
             isLegHighest =true;
         }
-
-        if(MaxActionPoint < actionPoint)actionPoint = MaxActionPoint;
-
-        if(actionPoint < MinActionPoint)actionPoint = MinActionPoint;
-
+        
     }
 
 }

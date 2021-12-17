@@ -11,14 +11,13 @@ public class PowerGauge : MonoBehaviour
     [SerializeField]private Image Powergauge; // パワーゲージの画像をいれる
     [SerializeField]private float PG_ratio; // パワーゲージ100%を1としたときのゲージ割合
     [SerializeField]JoyconPositionInformation JoyPosInfo;
+    [SerializeField]ActionPoint actionPoint;
     public float nowPG = 0; // 今のパワーゲージの値を初期値を0とする
 
     void Update()
     {
-        if(nowPG < JoyPosInfo.actionPoint)
-        {
-            nowPG += 0.01f;
-        }
+        nowPG = actionPoint.AddPowerGauge(nowPG);
+
         PG_ratio = nowPG / maxPG; // PG_ratioの計算式
 
         if (PG_ratio > 0.75f)
