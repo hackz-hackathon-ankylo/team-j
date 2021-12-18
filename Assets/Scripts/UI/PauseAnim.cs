@@ -5,10 +5,13 @@ using UnityEngine.UI;
 
 public class PauseAnim : MonoBehaviour
 {
+    [SerializeField] GameObject wholePanel;
+    [SerializeField] GameObject backPanel;
     [SerializeField] GameObject pausePopup;
     [SerializeField] float fadeAlpha;
+    Image background;
+    
     CanvasGroup canvasGroup;
-    // Start is called before the first frame update
     void Start()
     {
         canvasGroup = pausePopup.GetComponent<CanvasGroup>();
@@ -22,7 +25,7 @@ public class PauseAnim : MonoBehaviour
     }
 
     private IEnumerator PopupFadeIn() {
-        pausePopup.SetActive (true);
+        wholePanel.SetActive (true);
         while(canvasGroup.alpha != 1){
             canvasGroup.alpha += fadeAlpha;
             yield return new WaitForSeconds (0.01f);
@@ -34,7 +37,7 @@ public class PauseAnim : MonoBehaviour
         canvasGroup.alpha -= fadeAlpha;
         yield return new WaitForSeconds (0.005f);
         }
-        pausePopup.SetActive (false);
+        wholePanel.SetActive (false);
     yield break;
     }
 }
