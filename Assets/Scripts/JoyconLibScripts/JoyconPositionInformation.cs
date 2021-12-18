@@ -63,7 +63,7 @@ public class JoyconPositionInformation : MonoBehaviour
         if(joyconInfo.isHighestPositionL && !isLegHighest)
         {
             movingDistance.AddMovingDistance();
-            playerMovement.AddPlayerVelocity(1);
+            //playerMovement.AddPlayerVelocity(1);
             isLegHighest =true;
         }
 
