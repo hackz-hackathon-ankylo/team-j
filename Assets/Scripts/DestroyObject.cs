@@ -6,7 +6,7 @@ public class DestroyObject : MonoBehaviour
 {
     [SerializeField]private float objectHP;
     [SerializeField]ActionPoint actionPoint;
-    private float destroyDurability;
+    [SerializeField]private float destroyDurability;
     void Start(){
         destroyDurability = objectHP;
     }
@@ -14,7 +14,7 @@ public class DestroyObject : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            destroyDurability = actionPoint.ReduceObjectDurability(objectHP);
+            destroyDurability = actionPoint.ReduceObjectDurability(destroyDurability);
             actionPoint.ReduceActionPoint(objectHP);
 
             // もしもオブジェクトのHPが0になった場合には（条件）
@@ -22,6 +22,7 @@ public class DestroyObject : MonoBehaviour
             {
                 Destroy(this.gameObject); // このオブジェクトを破壊する
             }
+            Debug.Log($"耐久度{destroyDurability}");
         }
     }
 }

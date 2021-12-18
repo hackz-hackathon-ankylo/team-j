@@ -11,14 +11,14 @@ public class ActionPoint : MonoBehaviour
 
     const float MinActionPoint = 0f;
 
-    [System.NonSerialized]public float actionPoint = 0;
+    private float actionPoint = 0;
 
     /// <summary>
     /// アクションポイントを一追加する関数
     /// </summary>
     public void AddActionPoint()
     {
-        actionPoint++;
+        actionPoint += 1;
     }
 
     /// <summary>
@@ -52,6 +52,7 @@ public class ActionPoint : MonoBehaviour
     public void ReduceActionPoint(float x)
     {
         actionPoint -= x;
+        if(actionPoint < MinActionPoint)actionPoint = MinActionPoint;
     }
     void Update()
     {
