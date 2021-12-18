@@ -48,7 +48,7 @@ public class JoyconPositionInformation : MonoBehaviour
         if(joyconInfo.isIntermediatePositionL && !isLegIntermediate)
         {
             movingDistance.AddMovingDistance();
-            playerMovement.hoge(1);
+            playerMovement.AddPlayerVelocity(1);
             isLegIntermediate = true;
         }
 
@@ -62,9 +62,8 @@ public class JoyconPositionInformation : MonoBehaviour
         //左側のJoy-Con（足のJoy-Con）が最高点の時の処理
         if(joyconInfo.isHighestPositionL && !isLegHighest)
         {
-            Debug.Log($"1{joyconInfo.isHighestPositionL}:2{isLegHighest}");
             movingDistance.AddMovingDistance();
-            playerMovement.hoge(0);
+            playerMovement.AddPlayerVelocity(1);
             isLegHighest =true;
         }
 
