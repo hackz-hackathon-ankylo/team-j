@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PauseAnim : MonoBehaviour
 {
     [SerializeField] GameObject wholePanel;
-    [SerializeField] GameObject backPanel;
     [SerializeField] GameObject pausePopup;
     [SerializeField] float fadeAlpha;
     Image background;
