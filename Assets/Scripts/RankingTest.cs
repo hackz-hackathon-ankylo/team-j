@@ -20,7 +20,7 @@ public class RankingTest : MonoBehaviour
             result => 
             {
                 Debug.Log("ログイン成功！");
-                //SetPlayerDisplayName(usename);
+                SetPlayerDisplayName(useName);
             },
             error => 
             {
@@ -28,7 +28,7 @@ public class RankingTest : MonoBehaviour
             }
         );
     }
-    /*void SetPlayerDisplayName (string displayName) 
+    void SetPlayerDisplayName (string displayName) 
     {
         PlayFabClientAPI.UpdateUserTitleDisplayName(
             new UpdateUserTitleDisplayNameRequest {
@@ -36,11 +36,35 @@ public class RankingTest : MonoBehaviour
             },
             result => {
                 Debug.Log("Set display name was succeeded");
-                SubmitScore(Enemy.score);
+                SubmitScore(52);
             },
             error => {
                 Debug.LogError(error.GenerateErrorReport());
             }
         );
-    }*/
+    }
+    void SubmitScore(int playerScore)
+    {
+        PlayFabClientAPI.UpdatePlayerStatistics(
+            new UpdatePlayerStatisticsRequest
+            {
+                Statistics = new List<StatisticUpdate>()
+                {
+                    new StatisticUpdate
+                    {
+                        StatisticName = "shiiRanking",
+                        Value = playerScore
+                    }
+                }
+            },
+            result =>
+            {
+                Debug.Log("スコア送信");
+            },
+            error =>
+            {
+                Debug.Log(error.GenerateErrorReport());
+            }
+        );
+    }
 }
