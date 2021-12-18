@@ -52,6 +52,7 @@ public class ActionPoint : MonoBehaviour
     public void ReduceActionPoint(float x)
     {
         actionPoint -= x;
+        if(actionPoint < MinActionPoint)actionPoint = MinActionPoint;
     }
     void Update()
     {
