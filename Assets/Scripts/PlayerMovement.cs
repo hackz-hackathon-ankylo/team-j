@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddPlayerVelocity(float x)
     {
         rigidBody.velocity = new Vector2(x, rigidBody.velocity.y);
-        StartCoroutine("hoge2");
+        StartCoroutine("ReducePlayerVelocity");
     }
     IEnumerator ReducePlayerVelocity()
     {
