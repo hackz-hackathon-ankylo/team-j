@@ -22,6 +22,7 @@ public class PauseAnim : MonoBehaviour
     }
 
     private IEnumerator PopupFadeIn() {
+        pausePopup.SetActive (true);
         while(canvasGroup.alpha != 1){
             canvasGroup.alpha += fadeAlpha;
             yield return new WaitForSeconds (0.01f);
@@ -33,6 +34,7 @@ public class PauseAnim : MonoBehaviour
         canvasGroup.alpha -= fadeAlpha;
         yield return new WaitForSeconds (0.005f);
         }
+        pausePopup.SetActive (false);
     yield break;
     }
 }
