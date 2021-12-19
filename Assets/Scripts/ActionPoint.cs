@@ -16,9 +16,9 @@ public class ActionPoint : MonoBehaviour
     /// <summary>
     /// アクションポイントを一追加する関数
     /// </summary>
-    public void AddActionPoint()
+    public void AddActionPoint(float x)
     {
-        actionPoint += 1;
+        actionPoint += x;
     }
 
     /// <summary>

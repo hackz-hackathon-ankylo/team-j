@@ -23,50 +23,50 @@ public class JoyconPositionInformation : MonoBehaviour
 
     void Update()
     {
-        //右側のJoy-Con（腕のJoy-Con）が最低点の時の処理
-        if(joyconInfo.isLowestPositionR)
-        {
-            isArmIntermediate = false;
-            isArmHighest = false;
-        }
+        if(Time.timeScale != 0){
+            //右側のJoy-Con（腕のJoy-Con）が最低点の時の処理
+            if(joyconInfo.isLowestPositionR)
+            {
+                isArmIntermediate = false;
+                isArmHighest = false;
+            }
 
-        //左側のJoy-Con（足のJoy-Con）が最低点の時の処理
-        if(joyconInfo.isLowestPositionL)
-        {
-            isLegIntermediate = false;
-            isLegHighest = false;
-        }
+            //左側のJoy-Con（足のJoy-Con）が最低点の時の処理
+            if(joyconInfo.isLowestPositionL)
+            {
+                isLegIntermediate = false;
+                isLegHighest = false;
+            }
 
-        //右側のJoy-Con（腕のJoy-Con）が中間点の時の処理
-        if(joyconInfo.isIntermediatePositionR && !isArmIntermediate)
-        {
-            actionPoint.AddActionPoint();
-            isArmIntermediate = true;
-        }
+            //右側のJoy-Con（腕のJoy-Con）が中間点の時の処理
+            if(joyconInfo.isIntermediatePositionR && !isArmIntermediate)
+            {
+                actionPoint.AddActionPoint(0.5f);
+                isArmIntermediate = true;
+            }
 
-        //左側のJoy-Con（足のJoy-Con）が中間点の時の処理
-        if(joyconInfo.isIntermediatePositionL && !isLegIntermediate)
-        {
-            movingDistance.AddMovingDistance();
-            playerMovement.AddPlayerVelocity(1);
-            isLegIntermediate = true;
-        }
+            //左側のJoy-Con（足のJoy-Con）が中間点の時の処理
+            if(joyconInfo.isIntermediatePositionL && !isLegIntermediate)
+            {
+                movingDistance.AddMovingDistance();
+                playerMovement.AddPlayerVelocity(2);
+                isLegIntermediate = true;
+            }
 
-        //右側のJoy-Con（腕のJoy-Con）が最高点の時の処理
-        if(joyconInfo.isHighestPositionR && !isArmHighest)
-        {
-            actionPoint.AddActionPoint();
-            isArmHighest = true;
-        }
+            //右側のJoy-Con（腕のJoy-Con）が最高点の時の処理
+            if(joyconInfo.isHighestPositionR && !isArmHighest)
+            {
+                actionPoint.AddActionPoint(1f);
+                isArmHighest = true;
+            }
 
-        //左側のJoy-Con（足のJoy-Con）が最高点の時の処理
-        if(joyconInfo.isHighestPositionL && !isLegHighest)
-        {
-            movingDistance.AddMovingDistance();
-            //playerMovement.AddPlayerVelocity(1);
-            isLegHighest =true;
+            //左側のJoy-Con（足のJoy-Con）が最高点の時の処理
+            if(joyconInfo.isHighestPositionL && !isLegHighest)
+            {
+                playerMovement.AddPlayerVelocity(2);
+                isLegHighest =true;
+            }
         }
-
     }
 
 }

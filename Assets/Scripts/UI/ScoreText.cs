@@ -1,14 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreText : MonoBehaviour
 {
     [SerializeField] private Text scoreText;
+
     public int Score{
+        
+        get{
+            return Convert.ToInt32(scoreText);
+        }
         set{
-        scoreText.text = value.ToString();
+            String text = value.ToString();
+            scoreText.text = $"{text}m";
         }
     }
 }
