@@ -12,6 +12,10 @@ public class JoyconInformation : MonoBehaviour
     // Joycon: 予想では 左の JoyCon と 右の JoyCon
     // Enum.GetValues = Enum の値を配列として扱える変換
     // "HOGE" as number: "HOGE"といういう変数の型がなんであっても、その型を number として扱う。
+
+    [SerializeField]ActionPoint actionPoint;
+    [SerializeField]PauseAnim pauseAnim;
+    [SerializeField]PauseAnim pauseAnim2;
     private static readonly Joycon.Button[] m_buttons =
         Enum.GetValues( typeof( Joycon.Button ) ) as Joycon.Button[];
 
@@ -20,6 +24,10 @@ public class JoyconInformation : MonoBehaviour
     private Joycon          m_joyconR; // 接続されたJoyConの右
     private Joycon.Button?  m_pressedButtonL; // 押された左ボタンを格納
     private Joycon.Button?  m_pressedButtonR; // 押された右ボタンを格納
+
+    public static bool hoge = false;
+
+    
 
     /// <summary>
     /// TODO:enumで管理する
@@ -33,21 +41,13 @@ public class JoyconInformation : MonoBehaviour
 
     private void Start()
     {
-        // つながっている JoyCon の配列を取得
-        m_joycons = JoyconManager.Instance.j;
-
-        // JoyCon が存在しなければ、早期 return
-        if ( m_joycons == null || m_joycons.Count <= 0 ) return;
-
-        // https://www.sejuku.net/blog/45252
-        // つながっている Joycon の中から、左のものの一番目のコントローラを取得
-        m_joyconL = m_joycons.Find( c =>  c.isLeft );
-        // つながっている Joycon の中から、右のものの一番目のコントローラを取得
-        m_joyconR = m_joycons.Find( c => !c.isLeft );
+        SetControllers ();
     }
 
     private void Update()
     {
+        SetControllers ();
+
         foreach ( var joycon in m_joycons )
         {
             var isLeft      = joycon.isLeft;
@@ -98,7 +98,33 @@ public class JoyconInformation : MonoBehaviour
                 m_pressedButtonR = button;
             }
         }
+        if(m_pressedButtonR.ToString() == "PLUS")
+        {
+            pauseAnim2.PauseButtonPushed();
+        }
+        if(m_pressedButtonR.ToString() == "DPAD_RIGHT")
+        {
+            pauseAnim.ResumeButtonPushed();
+        }
+        if(m_pressedButtonR.ToString() == "DPAD_DOWN")
+        {
+            pauseAnim.ResumeButtonPushed();
+            hoge = true;
+        }
+    }
+    private void SetControllers ()
+    {
+        // つながっている JoyCon の配列を取得
+        m_joycons = JoyconManager.Instance.j;
 
+        // JoyCon が存在しなければ、早期 return
+        if ( m_joycons == null || m_joycons.Count <= 0 ) return;
+
+        // https://www.sejuku.net/blog/45252
+        // つながっている Joycon の中から、左のものの一番目のコントローラを取得
+        m_joyconL = m_joycons.Find( c =>  c.isLeft );
+        // つながっている Joycon の中から、右のものの一番目のコントローラを取得
+        m_joyconR = m_joycons.Find( c => !c.isLeft );
     }
 
 }

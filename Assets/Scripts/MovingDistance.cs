@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovingDistance : MonoBehaviour
 {
-    private float movingDistance = 0;
-
+    [SerializeField]Text scoreText;
+    ScoreText score;
+    private int movingDistance = 0;
+    private int deltaPoint = 1;
+    void Start(){
+        score = scoreText.GetComponent<ScoreText>();
+    }
     public void AddMovingDistance()
     {
-        movingDistance += 1;
+        movingDistance += deltaPoint;
+        score.Score = movingDistance;
     }
 
 }

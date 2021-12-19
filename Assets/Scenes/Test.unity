@@ -249,4 +249,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccbddab12eef4264b67a7bd3cf5a233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoge: hogetarou
+  hoge: "\u30CA\u30CA\u3061\u3061\u3083\u3093"
